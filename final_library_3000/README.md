@@ -4,7 +4,7 @@ Extracted and converted LeetCode solutions into standalone C++ functions.
 
 ## Statistics
 
-- **Total Functions**: 3000
+- **Total Functions**: 3345
 - **Source**: LeetCode problems from multiple repositories
 - **Format**: Standalone functions with test harnesses
 - **Standard**: C++17
@@ -27,7 +27,7 @@ make -j8
 
 ```
 .
-├── include/          # Header files (3000 functions + FuncRunner)
+├── include/          # Header files (3345 functions + FuncRunner)
 ├── src/              # Implementation files
 ├── CMakeLists.txt    # Build configuration
 ├── main.cpp          # Test driver

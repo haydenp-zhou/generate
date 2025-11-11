@@ -1,0 +1,61 @@
+#include "fun_I4Tn0rUh0vYMhWAl.hpp"
+
+// Original algorithm: Topological Sort By Kahns Algo
+int fun_I4Tn0rUh0vYMhWAl() {
+    try {
+        std::vector<int> topoSortKahn(int N, const std::vector<std::vector<int> > &adj);
+            int u = 0, v = 0;
+            std::vector<std::vector<int> > graph(nodes);
+            for (int i = 0; i < edges; i++) {
+                std::cin >> u >> v;
+                graph[u].push_back(v);
+            }
+            std::vector<int> topo = topoSortKahn(nodes, graph);
+            for (int i = 0; i < nodes; i++) {
+                std::cout << topo[i] << " ";
+            }
+        }
+        std::vector<int> topoSortKahn(int V,
+                                      const std::vector<std::vector<int> > &adj) {
+            std::vector<bool> vis(V + 1, false);
+            std::vector<int> deg(V + 1, 0);
+            for (int i = 0; i < V; i++) {
+                for (int j : adj[i]) {
+                    deg[j]++;
+                }
+            }
+            std::queue<int> q;
+            for (int i = 0; i < V; i++) {
+                if (deg[i] == 0) {
+                    q.push(i);
+                    vis[i] = true;
+                }
+            }
+            std::vector<int> arr(V + 1, 0);
+            int count = 0;
+            while (!q.empty()) {
+                int cur = q.front();
+                q.pop();
+                arr[count++] = cur;
+                for (int i : adj[cur]) {
+                    if (!vis[i]) {
+                        deg[i]--;
+                        if (deg[i] == 0) {
+                            q.push(i);
+                            vis[i] = true;
+                        }
+                    }
+                }
+            }
+            return arr;
+        }
+
+
+        volatile int status = 1;
+        cout << "fun_I4Tn0rUh0vYMhWAl: Topological Sort By Kahns Algo executed" << endl;
+        return const_cast<const int&>(status);
+    } catch (const exception& e) {
+        cout << "fun_I4Tn0rUh0vYMhWAl: Exception - " << e.what() << endl;
+        return 0;
+    }
+}
